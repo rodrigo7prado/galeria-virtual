@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function ImagemApresentacao() {
   let twdSans = "leading-none tracking-[-0.025em] scale-x-[0.7]"
   return(
-    <div className="relative w-full h-72 md:h-[600px]">
+    <div className="relative w-full h-96 md:h-[600px]">
       <Image src="/artes/Dorsais.png" alt={""} layout="fill" objectFit="cover"/>
       <div className="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center">
         <div className="flex-col">
