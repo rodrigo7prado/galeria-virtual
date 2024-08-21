@@ -35,8 +35,8 @@ export default function Produto() {
         }
 
         return (
-          <div key={index} className="rounded-md overflow-hidden">
-            <div className="relative min-h-40 md:h-56 min-w-96 md:min-w-80 flex items-center justify-center">
+          <div key={index} className="rounded-md overflow-hidden bg-slate-100">
+            <div className="relative min-h-32 min-w-80 md:h-56 md:min-w-80 flex items-center justify-center">
               <Image
                 src={"/" + item.src}
                 alt={item.titulo}
@@ -44,6 +44,7 @@ export default function Produto() {
                 // width={400}
                 // height={100}
                 objectFit="contain"
+                objectPosition="center center"
               />
             </div>
             <div className="z-20 pt-2 pb-1.5 px-3">{item.titulo}</div>
