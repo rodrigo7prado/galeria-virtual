@@ -37,7 +37,7 @@ export default function Produto() {
         return (
           <div key={index} className="bg-slate-300 rounded-md overflow-hidden">
             <div className="py-1 px-3">{item.titulo}</div>
-            <div className="relative h-56 bg-slate-400 flex items-center justify-center">
+            <div className="relative h-56 bg-slate-600 flex items-center justify-center">
               <Image
                 src={"/" + item.src}
                 alt={item.titulo}
