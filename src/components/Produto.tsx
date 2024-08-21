@@ -45,9 +45,10 @@ export default function Produto() {
                 // height={100}
                 objectFit="contain"
                 objectPosition="center center"
+                className="p-3"
               />
             </div>
-            <div className="z-20 pt-2 pb-1.5 px-3">{item.titulo}</div>
+            <div className="z-20 pt-0 pb-1.5 px-3">{item.titulo}</div>
             <div className={`text-sm px-3 py-0.5 ${twdClass}`}>
               {displayContent}
             </div>
