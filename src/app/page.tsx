@@ -7,7 +7,7 @@ import Image from "next/image";
 export default function Home() {
   return (
     <>
-      <div className="relative bg-slate-400 text-center">
+      <div className="relative bg-white text-center">
         <div className="sticky top-0 z-10  flex px-5 gap-4 pt-2 pb-2 bg-[hsl(220,60%,15%)] text-slate-200">
           <div>
             <a href="https://www.instagram.com/rodrigo7prado">

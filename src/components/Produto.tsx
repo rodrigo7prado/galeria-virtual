@@ -35,8 +35,7 @@ export default function Produto() {
         }
 
         return (
-          <div key={index} className="md:bg-slate-300 bg-slate-300 rounded-md overflow-hidden">
-            <div className="z-20 py-1 px-3">{item.titulo}</div>
+          <div key={index} className="rounded-md overflow-hidden">
             <div className="relative min-h-40 md:h-56 min-w-96 flex items-center justify-center">
               <Image
                 src={"/" + item.src}
@@ -47,6 +46,7 @@ export default function Produto() {
                 objectFit="contain"
               />
             </div>
+            <div className="z-20 py-1 px-3">{item.titulo}</div>
             <div className={`text-sm px-3 py-1.5 ${twdClass}`}>
               {displayContent}
             </div>
