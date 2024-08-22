@@ -22,7 +22,7 @@ export default function Home() {
         <SobreMim />
 
         {/* Ícone do WhatsApp fixo na parte inferior direita */}
-        <div className="fixed bottom-4 right-4 cursor-pointer">
+        <div className="z-30 fixed bottom-4 right-4 cursor-pointer">
           <Image
             src="/whatsapp.png"
             alt="WhatsApp"
