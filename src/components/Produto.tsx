@@ -33,7 +33,7 @@ function ProdutoItem({ item }: {item: IProdutoData}) {
   } else {
     twdClass = "";
     displayContent = (
-      <span className="font-montserrat font-[500] text-[1.25em] text-cyan-600">A partir de: R$ {item.valorInicio}</span>
+      <span className="font-montserrat font-[500] italic text-[1.25em] text-cyan-600">A partir de: R$ {item.valorInicio}</span>
     );
   }
 
@@ -53,12 +53,12 @@ function ProdutoItem({ item }: {item: IProdutoData}) {
           className="p-3"
         />
         {isHovered && (
-          <div className="absolute bottom-0 left-0 w-full h-12 bg-rp7verdeLimao-650 bg-opacity-70 flex items-center justify-center text-white font-bold">
-            Visualização de detalhes
+          <div className="absolute bottom-0 left-0 w-full h-12 bg-rp7verdeLimao-650 bg-opacity-90 flex items-center justify-center text-white font-bold">
+            Visualizar de detalhes
           </div>
         )}
       </div>
-      <div className="z-20 pt-0 pb-1.5 px-3 text-slate-600 italic">{item.titulo}</div>
+      <div className="z-20 pt-0 pb-1.5 px-3 text-slate-600">{item.titulo}</div>
       <div className={`text-sm px-3 py-0.5 ${twdClass}`}>
         {displayContent}
       </div>
