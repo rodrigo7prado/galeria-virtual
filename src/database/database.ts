@@ -1,4 +1,4 @@
-interface IProdutoData {
+export interface IProdutoData {
   titulo: string;
   src: string;
   boolVidro: string;
