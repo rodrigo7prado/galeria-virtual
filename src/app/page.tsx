@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <>
       <div className="relative bg-white text-center">
-        <div className="sticky top-0 z-10  flex px-5 gap-4 pt-2 pb-2 bg-[hsl(220,60%,15%)] text-slate-200">
+        <div className="sticky top-0 z-20  flex px-5 gap-4 pt-2 pb-2 bg-[hsl(220,60%,15%)] text-slate-200">
           <div>
             <a href="https://www.instagram.com/rodrigo7prado">
               <Image src={"/instagram.png"} alt={""} layout="intrinsic" width={25} height={25}/>
@@ -28,6 +28,7 @@ export default function Home() {
             alt="WhatsApp"
             width={70}
             height={70}
+            className="w-10 h-10 md:w-16 md:h-16"
           />
         </div>
       </div>

@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function SobreMim() {
   return (
-    <div className="px-3 bg-blue-950 text-white">
+    <div className="px-3 pb-20 bg-blue-950 text-white">
       <div className="flex flex-col md:flex-row items-start">
         <div className="relative flex-grow-0 flex-shrink-0 h-[300px] w-full md:h-[400px] md:w-[710px] mt-6 md:mt-0">
           <Image
