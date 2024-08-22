@@ -1,6 +1,8 @@
 export interface IProdutoData {
   titulo: string;
+  descricao: string;
   src: string;
+  imagemComMoldura: boolean;
   boolVidro: string;
   valorInicio: number;
   tiragens: number,
@@ -10,7 +12,9 @@ export interface IProdutoData {
 export const ProdutoData: IProdutoData[] = [
   {
     "titulo": "Dorsais",
+    "descricao": "",
     "src": "artes/Dorsais.png",
+    "imagemComMoldura": false,
     "boolVidro": "sim",
     valorInicio: 440.00,
     tiragens: 5,
@@ -18,7 +22,9 @@ export const ProdutoData: IProdutoData[] = [
   },
   {
     "titulo": "Blocos e Deslizamentos",
+    "descricao": "Percepção.",
     "src": "artes/blocos_e_deslizamentos_variação_II.png",
+    "imagemComMoldura": true,
     "boolVidro": "sim",
     valorInicio: 440.00,
     tiragens: 1,
@@ -26,7 +32,9 @@ export const ProdutoData: IProdutoData[] = [
   },
   {
     "titulo": "Fragmentos e Extensões",
+    "descricao": "",
     "src": "artes/Fragmentos e Extensões.jpg",
+    "imagemComMoldura": true,
     "boolVidro": "sim",
     valorInicio: 440.00,
     tiragens: 5,
@@ -34,7 +42,9 @@ export const ProdutoData: IProdutoData[] = [
   },
   {
     "titulo": "Figuras",
+    "descricao": "",
     "src": "artes/Figuras.jpg",
+    "imagemComMoldura": true,
     "boolVidro": "sim",
     valorInicio: 440.00,
     tiragens: 5,
@@ -42,7 +52,9 @@ export const ProdutoData: IProdutoData[] = [
   },
   {
     "titulo": "Posicionais",
+    "descricao": "",
     "src": "artes/Posicionais.png",
+    "imagemComMoldura": true,
     "boolVidro": "sim",
     valorInicio: 440.00,
     tiragens: 5,
@@ -50,7 +62,9 @@ export const ProdutoData: IProdutoData[] = [
   },
   {
     "titulo": "Nascimento e Navegações",
+    "descricao": "",
     "src": "artes/Nascimento e Navegações.jpg",
+    "imagemComMoldura": false,
     "boolVidro": "sim",
     valorInicio: 440.00,
     tiragens: 5,
@@ -58,7 +72,9 @@ export const ProdutoData: IProdutoData[] = [
   },
   {
     "titulo": "Desdobramentos",
+    "descricao": "",
     "src": "artes/Desdobramentos.png",
+    "imagemComMoldura": true,
     "boolVidro": "sim",
     valorInicio: 200.00,
     tiragens: 0,
@@ -66,7 +82,9 @@ export const ProdutoData: IProdutoData[] = [
   },
   {
     "titulo": "Bandeiras",
+    "descricao": "",
     "src": "artes/Bandeiras F4cm.png",
+    "imagemComMoldura": true,
     "boolVidro": "sim",
     valorInicio: 200.00,
     tiragens: 0,
@@ -74,7 +92,19 @@ export const ProdutoData: IProdutoData[] = [
   },
   {
     "titulo": "Arte 4/24",
+    "descricao": "",
     "src": "artes/Arte 4_24.jpg",
+    "imagemComMoldura": false,
+    "boolVidro": "sim",
+    valorInicio: 200.00,
+    tiragens: 1,
+    vendas: 1,
+  },
+  {
+    "titulo": "Liquefeitos",
+    "descricao": "",
+    "src": "artes/Liquefeitos.png",
+    "imagemComMoldura": true,
     "boolVidro": "sim",
     valorInicio: 200.00,
     tiragens: 1,
@@ -82,22 +112,16 @@ export const ProdutoData: IProdutoData[] = [
   },
   // {
   //   "titulo": "Plaina Via Crucis",
+  //   "descricao": "",
   //   "src": "artes/Plaina via crucis.jpg",
   //   "boolVidro": "sim",
   //   valorInicio: 200.00,
   //   tiragens: 2,
   //   vendas: 0,
   // },
-  {
-    "titulo": "Liquefeitos",
-    "src": "artes/Liquefeitos.png",
-    "boolVidro": "sim",
-    valorInicio: 200.00,
-    tiragens: 1,
-    vendas: 1,
-  },
   // {
   //   "titulo": "Grid",
+  //   "descricao": "",
   //   "src": "artes/Grid.png",
   //   "boolVidro": "sim",
   //   valorInicio: 200.00,

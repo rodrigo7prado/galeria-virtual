@@ -3,7 +3,7 @@
 import { IProdutoData, ProdutoData } from "@/database/database";
 import Image from "next/image";
 import React, { useState } from "react";
-import { createPortal } from "react-dom";
+import { ProdutoModal } from "./ProdutoModal";
 
 export default function Produto() {
   const data = ProdutoData;
@@ -81,33 +81,5 @@ function ProdutoItem({ item }: { item: IProdutoData }) {
         <ProdutoModal item={item} onClose={handleCloseModal} />
       )}
     </>
-  );
-}
-
-function ProdutoModal({ item, onClose }: { item: IProdutoData; onClose: () => void }) {
-  return createPortal(
-    <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-75">
-      <div className="bg-white p-5 rounded-md max-w-lg w-full relative">
-        <button
-          onClick={onClose}
-          className="absolute top-2 right-2 bg-gray-300 rounded-full p-2 text-sm"
-        >
-          ✕
-        </button>
-        <h2 className="text-2xl mb-4">{item.titulo}</h2>
-        <div className="relative h-64">
-          <Image
-            src={"/" + item.src}
-            alt={item.titulo}
-            layout="fill"
-            objectFit="contain"
-            objectPosition="center center"
-          />
-        </div>
-        <p className="mt-4">Descrição do produto aqui...</p>
-        {/* Adicione mais detalhes conforme necessário */}
-      </div>
-    </div>,
-    document.body
   );
 }
