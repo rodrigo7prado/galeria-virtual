@@ -1,8 +1,9 @@
-"use client"
+"use client";
 
 import { IProdutoData, ProdutoData } from "@/database/database";
 import Image from "next/image";
 import React, { useState } from "react";
+import { createPortal } from "react-dom";
 
 export default function Produto() {
   const data = ProdutoData;
@@ -16,8 +17,10 @@ export default function Produto() {
   );
 }
 
-function ProdutoItem({ item }: {item: IProdutoData}) {
+function ProdutoItem({ item }: { item: IProdutoData }) {
   const [isHovered, setIsHovered] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   let displayContent, twdClass;
 
   if (item.vendas === 0 && item.tiragens === 0) {
@@ -37,31 +40,74 @@ function ProdutoItem({ item }: {item: IProdutoData}) {
     );
   }
 
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
-    <div
-      className="rounded-md overflow-hidden bg-slate-100 cursor-pointer relative"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      <div className="relative min-h-32 min-w-80 md:h-56 md:min-w-80 flex items-center justify-center">
-        <Image
-          src={"/" + item.src}
-          alt={item.titulo}
-          layout="fill"
-          objectFit="contain"
-          objectPosition="center center"
-          className="p-3"
-        />
-        {isHovered && (
-          <div className="absolute bottom-0 left-0 w-full h-12 bg-rp7verdeLimao-650 bg-opacity-90 flex items-center justify-center text-white font-bold">
-            Visualizar de detalhes
-          </div>
-        )}
+    <>
+      <div
+        className="rounded-md overflow-hidden bg-slate-100 cursor-pointer relative"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        onClick={handleOpenModal}
+      >
+        <div className="relative min-h-32 min-w-80 md:h-56 md:min-w-80 flex items-center justify-center">
+          <Image
+            src={"/" + item.src}
+            alt={item.titulo}
+            layout="fill"
+            objectFit="contain"
+            objectPosition="center center"
+            className="p-3"
+          />
+          {isHovered && (
+            <div className="absolute bottom-0 left-0 w-full h-12 bg-rp7verdeLimao-650 bg-opacity-90 flex items-center justify-center text-white font-bold">
+              Visualizar de detalhes
+            </div>
+          )}
+        </div>
+        <div className="z-20 pt-0 pb-1.5 px-3 text-slate-600">{item.titulo}</div>
+        <div className={`text-sm px-3 py-0.5 ${twdClass}`}>
+          {displayContent}
+        </div>
       </div>
-      <div className="z-20 pt-0 pb-1.5 px-3 text-slate-600">{item.titulo}</div>
-      <div className={`text-sm px-3 py-0.5 ${twdClass}`}>
-        {displayContent}
+
+      {isModalOpen && (
+        <ProdutoModal item={item} onClose={handleCloseModal} />
+      )}
+    </>
+  );
+}
+
+function ProdutoModal({ item, onClose }: { item: IProdutoData; onClose: () => void }) {
+  return createPortal(
+    <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-75">
+      <div className="bg-white p-5 rounded-md max-w-lg w-full relative">
+        <button
+          onClick={onClose}
+          className="absolute top-2 right-2 bg-gray-300 rounded-full p-2 text-sm"
+        >
+          ✕
+        </button>
+        <h2 className="text-2xl mb-4">{item.titulo}</h2>
+        <div className="relative h-64">
+          <Image
+            src={"/" + item.src}
+            alt={item.titulo}
+            layout="fill"
+            objectFit="contain"
+            objectPosition="center center"
+          />
+        </div>
+        <p className="mt-4">Descrição do produto aqui...</p>
+        {/* Adicione mais detalhes conforme necessário */}
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }
