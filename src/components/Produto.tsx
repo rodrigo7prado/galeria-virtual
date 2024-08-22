@@ -6,12 +6,6 @@ import React, { useState } from "react";
 
 export default function Produto() {
   const data = ProdutoData
-  const dataView = data.map(item => ({
-    ...item,
-    status: item.vendas === item.tiragens ? "esgotado" : `A partir de: R$ ${item.valorInicio}`
-  }));
-
-
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
@@ -32,7 +26,7 @@ export default function Produto() {
         } else {
           twdClass = ""
           displayContent = (
-            <span className="">A partir de: R$ {item.valorInicio}</span>
+            <span className="font-montserrat font-[500] text-[1.25em] text-cyan-600">A partir de: R$ {item.valorInicio}</span>
           );
         }
 
@@ -54,13 +48,13 @@ export default function Produto() {
                 objectPosition="center center"
                 className="p-3"
               />
-              {isHovered && (
-                <div className="absolute bottom-0 left-0 w-full h-12 bg-rp7verdeLimao-650 bg-opacity-75 flex items-center justify-center text-white font-bold">
+              { isHovered && (
+                <div className="absolute bottom-0 left-0 w-full h-12 bg-rp7verdeLimao-650 bg-opacity-70 flex items-center justify-center text-white font-bold">
                   Visualização de detalhes
                 </div>
-              )}
+              ) }
             </div>
-            <div className="z-20 pt-0 pb-1.5 px-3">{item.titulo}</div>
+            <div className="z-20 pt-0 pb-1.5 px-3 text-slate-600 italic">{item.titulo}</div>
             <div className={`text-sm px-3 py-0.5 ${twdClass}`}>
               {displayContent}
             </div>
