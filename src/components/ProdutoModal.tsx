@@ -18,16 +18,18 @@ export function ProdutoModal({ item, onClose }: { item: IProdutoData; onClose: (
         <div className="flex flex-col md:flex-row">
           <div className="w-full">
             <div className={"relative min-h-40 md:min-h-96 flex items-center justify-center p-4"}>
-              <div className={item.imagemComMoldura ? "" : "p-[22px] bg-neutral-50 relative border-[16px] border-gray-500"}>
-                <Image
-                  src={"/" + item.src}
-                  alt={item.titulo}
-                  layout="intrinsic"
-                  width={500}  // Ajuste conforme necessário
-                  height={500} // Ajuste conforme necessário
-                  objectFit="contain"
-                  objectPosition="center"
-                />
+              <div className="shadow-md shadow-black/25">
+                <div className={item.imagemComMoldura ? "" : "p-[22px] bg-neutral-50 relative border-[16px] border-gray-500 shadow-black shadow-inner"}>
+                  <Image
+                    src={"/" + item.src}
+                    alt={item.titulo}
+                    layout="intrinsic"
+                    width={500}  // Ajuste conforme necessário
+                    height={500} // Ajuste conforme necessário
+                    objectFit="contain"
+                    objectPosition="center"
+                  />
+                </div>
               </div>
             </div>
             <p className="mt-4">{item.descricao}</p>
