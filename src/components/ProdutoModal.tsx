@@ -36,14 +36,29 @@ export function ProdutoModal({ item, onClose }: { item: IProdutoData; onClose: (
           </div>
           <div className="flex flex-col p-8 md:min-w-80">
             <div>R$ {item.valorInicio}</div>
-            <label htmlFor="">Dimensões da imagem</label>
-            <select name="" id="">
-              <option value="">40cm</option>
-            </select>
+            <label htmlFor="">Dimensões da imagem: </label>
+            <div className="relative inline-block">
+              <select className="border-2 border-solid border-black p-2 pr-8 bg-white appearance-none w-full">
+                <option value="">40cm</option>
+              </select>
+              <div className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+                <svg className="w-4 h-4 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </div>
+            </div>
+
             <label htmlFor="">Moldura: </label>
-            <select name="" id="">
-              <option value="">Fina 2cm</option>
-            </select>            
+            <div className="relative inline-block">
+              <select className="border-2 border-solid border-black p-2 pr-8 bg-white appearance-none w-full">
+                <option value="">Fina 2cm</option>
+              </select>
+              <div className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+                <svg className="w-4 h-4 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </div>
+            </div>          
           </div>
         </div>
       </div>
