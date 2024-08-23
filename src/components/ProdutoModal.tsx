@@ -19,7 +19,7 @@ export function ProdutoModal({ item, onClose }: { item: IProdutoData; onClose: (
           <div className="w-full">
             <div className={"relative min-h-40 md:min-h-96 flex items-center justify-center p-4"}>
               <div className="shadow-md shadow-black/25">
-                <div className={item.imagemComMoldura ? "" : "p-[22px] bg-neutral-50 relative border-[16px] border-gray-500 shadow-black shadow-inner"}>
+                <div className={item.imagemComMoldura ? "" : "p-[22px] bg-neutral-50 relative border-[16px] border-l-gray-500 border-t-gray-500/95 border-r-gray-500 border-b-gray-500/95 shadow-black shadow-inner"}>
                   <Image
                     src={"/" + item.src}
                     alt={item.titulo}
