@@ -7,13 +7,31 @@ import { ProdutoModal } from "./ProdutoModal";
 
 export default function Produto() {
   const data = ProdutoData;
+  const [visibleItems, setVisibleItems] = useState(8); // Inicialmente, mostrar 8 itens
+
+  const handleShowMore = () => {
+    setVisibleItems((prev) => prev + 8); // Exibe mais 8 itens ao clicar no botão
+  };
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
-      {data.map((item, index) => (
-        <ProdutoItem key={index} item={item} />
-      ))}
-    </div>
+    <>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+        {data.slice(0, visibleItems).map((item, index) => (
+          <ProdutoItem key={index} item={item} />
+        ))}
+      </div>
+
+      {visibleItems < data.length && (
+        <div className="flex justify-center mt-5 py-6">
+          <button
+            onClick={handleShowMore}
+            className="border-2 border-slate-600 px-4 py-2 font-openSans rounded-sm"
+          >
+            Ver mais
+          </button>
+        </div>
+      )}
+    </>
   );
 }
 
@@ -26,17 +44,26 @@ function ProdutoItem({ item }: { item: IProdutoData }) {
   if (item.vendas === 0 && item.tiragens === 0) {
     twdClass = "bg-rp7verdeLimao-650 text-gray-500";
     displayContent = (
-      <span title="" className="inline-block pt-0.5 pb-1.5 px-2 italic">Manifestar desejo</span>
+      <span title="" className="inline-block pt-0.5 pb-1.5 px-2 italic">
+        Manifestar desejo
+      </span>
     );
   } else if (item.vendas === item.tiragens) {
     twdClass = "bg-cyan-600 text-gray-100";
     displayContent = (
-      <span title="Item não disponível à venda" className="inline-block pt-0.5 pb-1.5 px-2 italic">Obra de Galeria</span>
+      <span
+        title="Item não disponível à venda"
+        className="inline-block pt-0.5 pb-1.5 px-2 italic"
+      >
+        Obra de Galeria
+      </span>
     );
   } else {
     twdClass = "";
     displayContent = (
-      <span className="font-montserrat font-[500] italic text-[1.25em] text-cyan-600">A partir de: R$ {item.valorInicio}</span>
+      <span className="font-montserrat font-[500] italic text-[1.25em] text-cyan-600">
+        A partir de: R$ {item.valorInicio}
+      </span>
     );
   }
 
@@ -72,14 +99,10 @@ function ProdutoItem({ item }: { item: IProdutoData }) {
           )}
         </div>
         <div className="z-20 pt-0 pb-1.5 px-3 text-slate-600">{item.titulo}</div>
-        <div className={`text-sm px-3 py-0.5 ${twdClass}`}>
-          {displayContent}
-        </div>
+        <div className={`text-sm px-3 py-0.5 ${twdClass}`}>{displayContent}</div>
       </div>
 
-      {isModalOpen && (
-        <ProdutoModal item={item} onClose={handleCloseModal} />
-      )}
+      {isModalOpen && <ProdutoModal item={item} onClose={handleCloseModal} />}
     </>
   );
 }
