@@ -2,7 +2,7 @@
 
 import { IProdutoData, ProdutoData } from "@/database/database";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { ProdutoModal } from "./ProdutoModal";
 
 export default function Produto() {
@@ -75,6 +75,13 @@ function ProdutoItem({ item }: { item: IProdutoData }) {
     setIsModalOpen(false);
   };
 
+  const [dimensions, setDimensions] = useState<{ width: number; height: number } | null>(null);
+
+  const handleImageLoad = (event: React.SyntheticEvent<HTMLImageElement>) => {
+    const { naturalWidth: width, naturalHeight: height } = event.currentTarget;
+    setDimensions({ width, height });
+  };
+
   return (
     <>
       <div
@@ -91,6 +98,7 @@ function ProdutoItem({ item }: { item: IProdutoData }) {
             objectFit="contain"
             objectPosition="center center"
             className="p-3"
+            onLoad={handleImageLoad}
           />
           {isHovered && (
             <div className="absolute bottom-0 left-0 w-full h-12 bg-rp7verdeLimao-650 bg-opacity-90 flex items-center justify-center text-white font-bold">
@@ -100,6 +108,11 @@ function ProdutoItem({ item }: { item: IProdutoData }) {
         </div>
         <div className="z-20 pt-0 pb-1.5 px-3 text-slate-600">{item.titulo}</div>
         <div className={`text-sm px-3 py-0.5 ${twdClass}`}>{displayContent}</div>
+        {dimensions && (
+          <p>
+            A largura da imagem é: {dimensions.width}px, altura: {dimensions.height}px
+          </p>
+        )}
       </div>
 
       {isModalOpen && <ProdutoModal item={item} onClose={handleCloseModal} />}
